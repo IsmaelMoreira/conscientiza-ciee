@@ -1,0 +1,8 @@
+conscientiza/
+│
+├─ app.py
+├─ templates/
+│   └─ index.html
+└─ static/
+    └─ style.css  (opcional, se quiser separar CSS)
+    └─ script.js  (opcional, se quiser separar JS)

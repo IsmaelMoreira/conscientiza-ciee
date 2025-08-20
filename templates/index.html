@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Conscientiza – Entenda e Combata o Assédio</title>
+  <meta name="description"
+    content="Site educativo, interativo e lúdico para aprender sobre os principais tipos de assédio, como identificar, prevenir e denunciar." />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+  <div id="modalTrigger" class="modal"
+    style="display:flex; position:fixed; inset:0; align-items:center; justify-content:center; background:rgba(0,0,0,.75); z-index:9999;">
+    <div class="modal-content"
+      style="background:var(--panel); border-radius:var(--radius); padding:2rem; max-width:400px; text-align:center; box-shadow:var(--shadow);">
+      <h2>Atenção ⚠️</h2>
+      <p>Este conteúdo pode ser sensível e causar gatilho emocional. Você confirma que deseja continuar?</p>
+      <button class="btn primary" id="acceptBtn" style="margin-top:1rem;">Entendo e quero continuar</button>
+      <button class="btn ghost" id="exitBtn" style="margin-top:.5rem;">Sair</button>
+    </div>
+  </div>
+
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo principal</a>
+  <header>
+    <nav aria-label="Navegação principal" class="container">
+      <div class="logo" aria-label="Conscientiza">
+        <div class="mark" aria-hidden="true"></div>
+        <span>Conscientiza</span>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links" role="menubar">
+        <a role="menuitem" href="#tipos">Tipos de Assédio</a>
+        <a role="menuitem" href="#quiz">Quiz</a>
+        <a role="menuitem" href="#historia">Histórias</a>
+        <a role="menuitem" href="#recursos">Ajuda</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="t-hero">
+      <div class="wrap">
+        <div>
+          <span class="badge" aria-label="Slogan">💬 educação • respeito • apoio</span>
+          <h1 id="t-hero">Entenda, reconheça e combata o assédio</h1>
+          <p>
+            Este site explica, de forma acessível e responsável, os principais tipos de assédio – com exemplos do dia a
+            dia, dicas de prevenção, caminhos de apoio e atividades interativas.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#tipos">Começar agora</a>
+            <a class="btn ghost" href="#recursos">Preciso de ajuda</a>
+          </div>
+          <p class="pill" style="margin-top:.75rem">⚠️ Conteúdo sensível, mas necessário. Se precisar, faça pausas.</p>
+        </div>
+        <div class="hero-card" aria-hidden="true">
+          <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap:.75rem">
+            <div class="card">
+              <div class="chip">📍 Público</div>
+              <h3>Assédio em espaços públicos</h3>
+              <p>Cantadas invasivas, perseguição, toques sem consentimento.</p>
+            </div>
+            <div class="card">
+              <div class="chip">🏢 Trabalho</div>
+              <h3>Assédio no trabalho</h3>
+              <p>Intimidações, humilhações, chantagens (inclui sexual e moral).</p>
+            </div>
+            <div class="card">
+              <div class="chip">🧠 Moral</div>
+              <h3>Assédio moral</h3>
+              <p>Exposição, cobranças abusivas, isolamento intencional.</p>
+            </div>
+            <div class="card">
+              <div class="chip">🌐 Virtual</div>
+              <h3>Assédio online</h3>
+              <p>Ataques, perseguições (stalking), vazamento de dados/imagens.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOS -->
+    <section id="tipos" aria-labelledby="t-tipos">
+      <h2 id="t-tipos">Principais tipos de assédio</h2>
+      <p class="muted">Clique nos cartões para ver definições, exemplos e como agir.</p>
+      <div class="grid cards" id="cardsTipos" aria-live="polite">
+        <!-- Cards renderizados via JS para facilitar edição/ordem -->
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" aria-labelledby="t-quiz">
+      <h2 id="t-quiz">Quiz rápido: mito ou verdade?</h2>
+      <div class="quiz" role="region" aria-describedby="quiz-desc">
+        <p id="quiz-desc" class="muted">Marque a opção correta. No final, veja seu resultado e dicas.</p>
+        <div id="quizBox"></div>
+        <button class="btn primary" id="quizSubmit">Ver meu resultado</button>
+        <p id="quizScore" aria-live="polite" style="margin-top:.75rem; font-weight:700"></p>
+      </div>
+    </section>
+
+    <!-- HISTÓRIA INTERATIVA -->
+    <section id="historia" aria-labelledby="t-historia">
+      <h2 id="t-historia">Histórias interativas (aprenda escolhendo caminhos)</h2>
+      <div class="story">
+        <div class="node" id="storyNode" tabindex="0" aria-live="polite"></div>
+        <div class="choices" id="storyChoices"></div>
+      </div>
+    </section>
+
+    <!-- RECURSOS E AJUDA -->
+    <section id="recursos" aria-labelledby="t-recursos">
+      <h2 id="t-recursos">O que fazer? Recursos e canais de apoio</h2>
+      <div class="resources">
+        <div class="resource">
+          <h3>Se estiver em risco imediato</h3>
+          <p>Procure um local seguro e contate as autoridades do seu município/estado.</p>
+          <p class="hotline">📞 Emergência: 190</p>
+        </div>
+        <div class="resource">
+          <h3>Direitos e denúncias (Brasil)</h3>
+          <ul>
+            <li>Disque <strong>180</strong> – Central de Atendimento à Mulher.</li>
+            <li>Disque <strong>100</strong> – Direitos Humanos.</li>
+            <li>Delegacias Especializadas e canais do seu estado/município.</li>
+          </ul>
+        </div>
+        <div class="resource">
+          <h3>Como registrar</h3>
+          <p>Anote data, hora, local, possíveis testemunhas, prints/evidências. Guarde tudo em local seguro.</p>
+        </div>
+        <div class="resource">
+          <h3>Para escolas e empresas</h3>
+          <p>Implemente políticas claras, treinamentos, canais confidenciais e ações educativas contínuas.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projeto educativo. Este conteúdo é informativo e não substitui orientação jurídica ou psicológica profissional.
+    </p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

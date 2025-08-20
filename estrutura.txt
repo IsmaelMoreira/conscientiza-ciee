@@ -1,8 +1,12 @@
 conscientiza/
 │
-├─ app.py
+├─ api/
+│   ├─ app.py
+│   └─ database.db   <- será criado automaticamente
 ├─ templates/
 │   └─ index.html
-└─ static/
-    └─ style.css  (opcional, se quiser separar CSS)
-    └─ script.js  (opcional, se quiser separar JS)
+├─ static/
+│   ├─ style.css
+│   └─ script.js
+├─ requirements.txt
+└─ vercel.json

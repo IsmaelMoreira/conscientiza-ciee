@@ -1,8 +1,7 @@
 conscientiza/
 │
 ├─ api/
-│   ├─ app.py
-│   └─ database.db   <- será criado automaticamente
+│   └─ app.py
 ├─ templates/
 │   └─ index.html
 ├─ static/

@@ -11,11 +11,14 @@ def handler(request, context):
         data = request.json
         ip = request.headers.get("x-forwarded-for", "0.0.0.0")
         aceitou = data.get("aceitou", False)
+
         supabase.table("registros").insert({
             "ip": ip,
             "aceitou": aceitou,
             "data_hora": datetime.now().isoformat()
         }).execute()
+
         return {"status": 200, "body": {"status": "ok"}}
+
     except Exception as e:
         return {"status": 500, "body": {"status": "erro", "mensagem": str(e)}}

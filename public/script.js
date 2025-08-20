@@ -1,3 +1,18 @@
+document.getElementById("btnAceitar").addEventListener("click", async () => {
+    try {
+        const response = await fetch("/api/registro", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ aceitou: true })
+        });
+        const data = await response.json();
+        alert(data.status === "ok" ? "Registrado com sucesso!" : "Erro ao registrar");
+    } catch (err) {
+        alert("Erro na requisição");
+        console.error(err);
+    }
+});
+
 // ======= DADOS DOS TIPOS DE ASSÉDIO =======
 const TIPOS = [
     {

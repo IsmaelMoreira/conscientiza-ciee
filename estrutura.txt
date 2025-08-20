@@ -1,11 +1,10 @@
 conscientiza/
 │
 ├─ api/
-│   └─ app.py
-├─ templates/
-│   └─ index.html
-├─ static/
+│   └─ registro.py          # Função serverless Python
+├─ public/
+│   ├─ index.html           # Front-end
 │   ├─ style.css
 │   └─ script.js
-├─ requirements.txt
-└─ vercel.json
+├─ vercel.json
+└─ requirements.txt
